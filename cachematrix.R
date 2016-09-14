@@ -1,15 +1,34 @@
-## Put comments here that give an overall description of what your
-## functions do
+## Coursera Assignment
 
-## Write a short comment describing this function
+## Function for caching
 
-makeCacheMatrix <- function(x = matrix()) {
 
+makeCachematrix <- function(x = matrix()) {
+  i <- NULL
+  set <- function(y=matrix()) {
+    x <<- y
+    i <<- NULL
+  }
+  get <- function() x
+  setinverse <- function(solve) i <<- solve
+  getinverse <- function() i
+  list(set = set, get = get,
+       setinverse = setinverse,
+       getinverse = getinverse)
 }
 
 
-## Write a short comment describing this function
+## Function for computing inverse of square matrix
 
-cacheSolve <- function(x, ...) {
+cachesolve <- function(x, ...) {
+  i <- x$getinverse
+  if(!is.null(i)) {
+    message("getting cached data")
+    return(i)
+  }
+  data <- x$get()
+  i <- solve(data, ...)
+  x$setinverse(i)
+  i
+}
         ## Return a matrix that is the inverse of 'x'
-}
