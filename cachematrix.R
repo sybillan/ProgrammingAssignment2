@@ -1,6 +1,6 @@
 ## Coursera Assignment
 
-## Function for caching
+## Function to illustrate caching and closures within lexical scoping
 
 
 makeCachematrix <- function(x = matrix()) {
@@ -18,7 +18,7 @@ makeCachematrix <- function(x = matrix()) {
 }
 
 
-## Function for computing inverse of square matrix
+## Function for computing inverse of square matrix, where if the inverse has been computed before, the cached value is derived
 
 cachesolve <- function(x, ...) {
   i <- x$getinverse
